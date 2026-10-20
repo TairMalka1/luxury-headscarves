@@ -1,0 +1,280 @@
+```
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TENOR | Timeless Elegance</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f8f4ec;--sand:#e9dece;--gold:#b99a62;--brown:#49372b;--text:#392c23;--white:#fffdf9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--text);font-family:Heebo,sans-serif}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold)}
+.announcement{background:var(--brown);color:white;text-align:center;padding:9px;font-size:12px;letter-spacing:1px}
+header{position:sticky;top:0;z-index:10;background:var(--cream);border-bottom:1px solid var(--sand)}
+.header-main{max-width:1400px;margin:auto;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{border:0;background:none;color:var(--brown);font-family:"Playfair Display",serif;font-size:32px;letter-spacing:5px}
+.logo small{display:block;font-family:Heebo,sans-serif;font-size:9px;letter-spacing:3px;color:var(--gold)}
+.actions{display:flex;gap:12px;align-items:center}
+.actions button{border:0;background:none;color:var(--brown);font-size:13px}
+#cart-count{display:inline-flex;justify-content:center;align-items:center;background:var(--gold);color:white;border-radius:50%;width:21px;height:21px}
+nav{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;padding:0 10px 13px}
+nav button{border:0;border-bottom:1px solid transparent;background:none;color:var(--brown);font-size:13px;padding:5px 0}
+nav button:hover,nav button.active{color:var(--gold);border-bottom-color:var(--gold)}
+.page{display:none}.page.active{display:block}
+.hero{min-height:510px;display:flex;align-items:center;color:white;background:linear-gradient(90deg,#23181022,#231810b8),url('https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1800&q=85') center/cover}
+.hero-content{margin-right:9%;max-width:550px;padding:45px 0}
+.eyebrow{color:var(--gold);font-size:12px;letter-spacing:3px}
+.hero .eyebrow{color:#efd6a6}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(42px,6vw,72px);font-weight:400;line-height:1.2;margin:16px 0}
+.hero p{line-height:2;color:#f4e9dd;max-width:430px}
+.btn{display:inline-block;background:var(--gold);color:white;border:1px solid var(--gold);padding:12px 25px;margin-top:12px}
+.btn:hover{background:var(--brown)}
+.section{max-width:1350px;margin:auto;padding:55px 5%}
+.heading{text-align:center;margin-bottom:30px}
+.heading h2,.banner h1,.club h1{font-family:"Playfair Display",serif;font-size:clamp(32px,5vw,46px);font-weight:400;color:var(--brown)}
+.heading p,.banner p{color:#877767;line-height:1.9}
+.categories{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.category{height:290px;position:relative;overflow:hidden;cursor:pointer;background:var(--sand)}
+.category img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.category:hover img{transform:scale(1.05)}
+.category:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#21170bbd)}
+.category-label{position:absolute;z-index:1;bottom:18px;right:17px;color:white}
+.category-label h3{font-size:21px;font-weight:400;margin:0 0 5px}
+.category-label span{font-size:12px}
+.banner{text-align:center;background:var(--sand);padding:42px 20px}
+.banner p{max-width:650px;margin:10px auto}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:25px 16px}
+.product-photo{height:290px;position:relative;overflow:hidden;background:var(--sand)}
+.product-photo img{width:100%;height:100%;object-fit:cover;transition:.4s}
+.product-card:hover img{transform:scale(1.04)}
+.badge{position:absolute;top:12px;right:12px;background:var(--white);padding:5px 10px;font-size:11px}
+.product-info{padding:12px 2px}
+.product-info h3{font-size:15px;font-weight:500;margin:0 0 7px}
+.color{font-size:12px;color:#8a7867}
+.price{font-weight:600}.old-price{text-decoration:line-through;color:#a69a8d;margin-left:7px;font-weight:400}
+.add{display:block;width:100%;padding:10px;margin-top:12px;background:transparent;border:1px solid #c4ad87;color:var(--brown)}
+.add:hover{background:var(--brown);color:white}
+.club{background:var(--brown);color:white;text-align:center;padding:65px 20px}
+.club .eyebrow{color:#e7c990}.club h1{color:#fff5e8}.club>p{color:#e3d4c4;line-height:1.9;max-width:550px;margin:15px auto}
+.form{max-width:480px;margin:25px auto;display:grid;gap:12px}
+.form input,.form textarea{width:100%;padding:13px;border:1px solid #d7c7b1;background:var(--white);color:var(--text)}
+.form button{padding:13px;border:0;background:var(--gold);color:white}
+.info-page{max-width:1000px;min-height:450px;margin:auto;padding:45px 6% 70px;line-height:2}
+.info-page>h1{text-align:center;font-family:"Playfair Display",serif;font-size:clamp(34px,5vw,48px);font-weight:400;color:var(--brown)}
+.info-intro{text-align:center;color:#867565;max-width:700px;margin:15px auto 35px}
+.info-page h2{margin-top:30px;padding-bottom:7px;border-bottom:1px solid var(--sand);font-size:21px;font-weight:500}
+.info-card{background:var(--white);border:1px solid var(--sand);padding:22px;margin:18px 0}
+.article-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:30px}
+.article-card{background:var(--white);border:1px solid var(--sand);overflow:hidden}
+.article-card img{width:100%;height:220px;object-fit:cover;display:block}
+.article-body{padding:20px}
+.article-body h2{border:0;margin:5px 0;font-size:23px}
+.article-body p{color:#867565;line-height:1.9}
+.article-body button{background:transparent;border:0;border-bottom:1px solid var(--gold);padding:8px 0;color:var(--brown)}
+.article-content{max-width:780px;margin:auto;line-height:2}
+.article-content h2{margin-top:30px}
+.back-link{border:1px solid var(--gold);background:transparent;padding:10px 18px;color:var(--brown);margin:20px 0}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center;padding:28px 5%;border-block:1px solid var(--sand)}
+.benefits h3{font-weight:500;font-size:15px}.benefits p{font-size:12px;color:#8a7867}
+footer{background:#eee5d7;text-align:center;padding:38px 5% 22px}
+.footer-logo{font-family:"Playfair Display",serif;font-size:30px;letter-spacing:4px}
+footer p{font-size:12px;color:#8a7867;line-height:1.8}
+.footer-columns{max-width:950px;margin:30px auto;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;text-align:right}
+.footer-columns h3{font-size:14px;font-weight:600}
+.footer-columns button{display:block;border:0;background:none;color:#7b695a;padding:6px 0;font-size:12px;text-align:right}
+.footer-links{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin:18px 0}
+.footer-links button{border:0;background:none;color:var(--brown)}
+.cart-panel{position:fixed;z-index:50;top:0;left:0;width:min(420px,94vw);height:100%;overflow:auto;background:var(--white);box-shadow:0 0 0 100vw #0006;padding:22px}
+.cart-panel[hidden]{display:none}
+.cart-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--sand)}
+.cart-top button{border:0;background:none;font-size:25px}
+.cart-item{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--sand);font-size:14px}
+.cart-item button{border:0;background:none;color:#926a52;text-decoration:underline}
+.coupon-row{display:flex;gap:8px;margin-top:8px}
+.coupon-row input{width:100%;min-width:0;padding:10px;border:1px solid #d7c7b1}
+.coupon-row button{padding:10px;background:var(--gold);color:white;border:0}
+.cart-total{display:flex;justify-content:space-between;margin-top:14px;font-weight:500}
+.cart-checkout{width:100%;margin-top:18px;padding:13px;background:var(--brown);color:white;border:0}
+.notice{text-align:center;color:#86735f;padding:25px}
+@media(max-width:800px){.categories{grid-template-columns:repeat(2,minmax(0,1fr))}.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.product-photo{height:250px}.article-grid{grid-template-columns:1fr}.footer-columns{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.header-main{padding:12px 3%}.logo{font-size:25px;letter-spacing:3px}.actions{gap:5px}.actions button{font-size:11px}nav{gap:12px}nav button{font-size:12px}.hero{min-height:420px}.hero-content{margin-right:5%;padding:25px 0}.hero h1{font-size:42px}.section{padding:38px 4%}.category{height:210px}.product-grid{gap:20px 10px}.product-photo{height:200px}.product-info h3{font-size:13px}.benefits{grid-template-columns:1fr;gap:5px}.footer-columns{grid-template-columns:1fr;text-align:center}.footer-columns button{text-align:center}}
+</style>
+</head>
+<body>
+<div class="announcement">TENOR · אלגנטיות שנשארת איתך · משלוח חינם מעל ₪299</div>
+<header>
+  <div class="header-main">
+    <button class="logo" onclick="showPage('home')">TENOR<small>TIMELESS ELEGANCE</small></button>
+    <div class="actions"><button onclick="showPage('club')">מועדון לקוחות</button><button onclick="openCart()">תיק קניות <span id="cart-count">0</span></button></div>
+  </div>
+  <nav id="nav">
+    <button class="active" data-page="home" onclick="showPage('home')">ראשי</button>
+    <button data-page="new" onclick="showPage('new')">חדש באתר</button>
+    <button data-page="sale" onclick="showPage('sale')">SALE</button>
+    <button data-page="long" onclick="showPage('long')">צעיפים ארוכים</button>
+    <button data-page="square" onclick="showPage('square')">צעיפים מרובעים</button>
+    <button data-page="plain" onclick="showPage('plain')">צעיפים חלקים</button>
+    <button data-page="collection" onclick="showPage('collection')">קולקציות</button>
+    <button data-page="styling" onclick="showPage('styling')">מגזין סטיילינג</button>
+    <button data-page="club" onclick="showPage('club')">מועדון לקוחות</button>
+  </nav>
+</header>
+
+<main>
+<div class="page active" id="page-home">
+  <section class="hero"><div class="hero-content"><span class="eyebrow">THE ART OF ELEGANCE</span><h1>הפרטים הקטנים.<br>ההבדל הגדול.</h1><p>גלי את עולם הצעיפים של TENOR — גוונים על־זמניים, טקסטורות עשירות ואלגנטיות שמתחילה בפרטים הקטנים.</p><button class="btn" onclick="showPage('new')">גלי את הקולקציה</button></div></section>
+  <section class="section"><div class="heading"><span class="eyebrow">FIND YOUR STYLE</span><h2>מצאי את הסגנון שלך</h2><p>הפריט המושלם לכל מראה ולכל רגע.</p></div><div class="categories">
+    <div class="category" onclick="showPage('long')"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=600&q=80" alt="צעיפים ארוכים"><div class="category-label"><h3>צעיפים ארוכים</h3><span>לגלות את הקולקציה ←</span></div></div>
+    <div class="category" onclick="showPage('square')"><img src="https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=600&q=80" alt="צעיפים מרובעים"><div class="category-label"><h3>צעיפים מרובעים</h3><span>לגלות את הקולקציה ←</span></div></div>
+    <div class="category" onclick="showPage('plain')"><img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80" alt="צעיפים חלקים"><div class="category-label"><h3>צעיפים חלקים</h3><span>לגלות את הקולקציה ←</span></div></div>
+    <div class="category" onclick="showPage('sale')"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=600&q=80" alt="SALE"><div class="category-label"><h3>SALE</h3><span>לגלות את המבצעים ←</span></div></div>
+  </div></section>
+  <section class="section"><div class="heading"><span class="eyebrow">HANDPICKED FOR YOU</span><h2>הבחירות שלנו</h2></div><div class="product-grid" id="home-products"></div></section>
+  <div class="benefits"><div><h3>✧ עיצוב על־זמני</h3><p>פריטים שנבחרו בקפידה</p></div><div><h3>✧ תשומת לב לפרטים</h3><p>כי כל פרט קטן משנה</p></div><div><h3>✧ שירות אישי</h3><p>אנחנו כאן בשבילך</p></div></div>
+</div>
+
+<div class="page" id="page-new"><section class="banner"><span class="eyebrow">JUST ARRIVED</span><h1>חדש באתר</h1><p>הכירי את הפריטים החדשים שלנו.</p></section><section class="section"><div class="product-grid" id="new-products"></div></section></div>
+<div class="page" id="page-sale"><section class="banner"><span class="eyebrow">THE SALE EDIT</span><h1>SALE</h1><p>הפריטים שאת אוהבת, במחירים מיוחדים.</p></section><section class="section"><div class="product-grid" id="sale-products"></div></section></div>
+<div class="page" id="page-long"><section class="banner"><span class="eyebrow">EFFORTLESS STYLE</span><h1>צעיפים ארוכים</h1><p>רכות, תנועה ונוכחות. אלגנטיות טבעית לכל יום.</p></section><section class="section"><div class="product-grid" id="long-products"></div></section></div>
+<div class="page" id="page-square"><section class="banner"><span class="eyebrow">A DIFFERENT ANGLE</span><h1>צעיפים מרובעים</h1><p>פריט אחד, אינספור אפשרויות.</p></section><section class="section"><div class="product-grid" id="square-products"></div></section></div>
+<div class="page" id="page-plain"><section class="banner"><span class="eyebrow">LESS IS MORE</span><h1>צעיפים חלקים</h1><p>גוונים רגועים, קווים נקיים ויופי על־זמני.</p></section><section class="section"><div class="product-grid" id="plain-products"></div></section></div>
+<div class="page" id="page-collection"><section class="banner"><span class="eyebrow">THE TENOR EDIT</span><h1>הקולקציות שלנו</h1><p>עולם של גוונים, טקסטורות וסגנון.</p></section><section class="section"><div class="product-grid" id="collection-products"></div></section></div>
+
+<div class="page" id="page-club"><section class="club"><span class="eyebrow">YOU ARE INVITED</span><h1>מועדון TENOR</h1><p>הצטרפי לקהילה שלנו וקבלי עדכונים על קולקציות חדשות, השראה והטבות.</p><form class="form" onsubmit="joinClub(event)"><input id="club-name" placeholder="השם שלך" required><input id="club-email" type="email" placeholder="כתובת האימייל שלך" required><button type="submit">הצטרפי למועדון</button></form><p id="club-message"></p><p style="font-size:12px">טופס ההדגמה אינו שומר פרטים במערכת חיצונית.</p></section></div>
+
+<div class="page" id="page-styling"><section class="banner"><span class="eyebrow">THE TENOR JOURNAL</span><h1>מגזין הסטיילינג</h1><p>השראה, טיפים ורעיונות לשילוב צעיפים במראה האישי שלך.</p></section><section class="section"><div class="article-grid">
+  <article class="article-card"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80" alt="צעיף והשראה אופנתית"><div class="article-body"><span class="eyebrow">STYLE GUIDE</span><h2>5 דרכים לקשור צעיף</h2><p>צעיף אחד יכול לשנות את כל המראה. הנה חמש דרכים קלות ליצור שילובים שונים.</p><button onclick="showArticle('tie')">לקריאת המאמר ←</button></div></article>
+  <article class="article-card"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80" alt="בגדים בגוונים ניטרליים"><div class="article-body"><span class="eyebrow">COLOR STORY</span><h2>איך לשלב צבעים כמו מקצוענית</h2><p>קרם, קפה, שחור וזהב — כך תיצרי מראה הרמוני ועשיר.</p><button onclick="showArticle('color')">לקריאת המאמר ←</button></div></article>
+  <article class="article-card"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" alt="השראה למראה אלגנטי"><div class="article-body"><span class="eyebrow">WARDROBE</span><h2>צעיף לכל אירוע</h2><p>מהמשרד ועד ערב חגיגי: איך לבחור את הצעיף שמתאים לאווירה.</p><button onclick="showArticle('occasion')">לקריאת המאמר ←</button></div></article>
+  <article class="article-card"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=800&q=80" alt="מלתחה מוקפדת"><div class="article-body"><span class="eyebrow">TIMELESS STYLE</span><h2>מלתחה קטנה, הרבה אפשרויות</h2><p>פריטים על־זמניים ושילובים חכמים שמקלים על הבחירה בכל בוקר.</p><button onclick="showArticle('wardrobe')">לקריאת המאמר ←</button></div></article>
+</div></section></div>
+
+<div class="page" id="page-article"><section class="info-page"><button class="back-link" onclick="showPage('styling')">← חזרה למגזין</button><div id="article-content" class="article-content"></div></section></div>
+
+<div class="page" id="page-terms"><section class="info-page"><h1>תנאי שימוש</h1><p class="info-intro">ברוכה הבאה לאתר TENOR. אנא קראי את התנאים לפני השימוש באתר.</p>
+<h2>1. כללי</h2><p>האתר נועד להציג מידע על מוצרי TENOR ולאפשר למבקרים לעיין בקולקציות. השימוש באתר כפוף לדין החל ולתנאים המפורטים בעמוד זה. יש לעדכן את התנאים בהתאם לפרטי העסק ולפעילותו בפועל.</p>
+<h2>2. מידע ותמונות</h2><p>אנו משתדלים להציג מידע, תמונות ומחירים באופן מדויק. ייתכנו הבדלים בין התצוגה במסך לבין המוצר בפועל, לרבות בגוונים. יש לוודא שמחירי המוצרים, זמינותם ותיאורם מעודכנים לפני השקת האתר.</p>
+<h2>3. שימוש באתר</h2><p>אין להשתמש באתר לצורך פעילות בלתי חוקית, פגיעה באתר או הפרעה לשימוש של אחרים. אין להעתיק תכנים או תמונות ללא הרשאה מתאימה.</p>
+<h2>4. פרטיות</h2><p>אין להזין באתר מידע שאינו נחוץ. לפני איסוף פרטים אישיים בפועל יש לפרסם מדיניות פרטיות מתאימה ולהסביר כיצד נשמרים הפרטים, למי הם מועברים וכיצד ניתן לפנות בנוגע אליהם.</p>
+<h2>5. שינויים ויצירת קשר</h2><p>העסק רשאי לעדכן את תוכן האתר בהתאם לדין. לשאלות ניתן לפנות דרך עמוד יצירת הקשר. נוסח זה הוא תבנית ראשונית ואינו ייעוץ משפטי.</p></section></div>
+
+<div class="page" id="page-regulations"><section class="info-page"><h1>תקנון האתר</h1><p class="info-intro">תנאים כלליים לעיון ולרכישה באתר TENOR.</p>
+<h2>1. פרטי העסק</h2><p>יש להשלים כאן את שם העסק המשפטי, מספר העוסק או החברה, כתובת העסק ופרטי ההתקשרות לפני פתיחת האתר למכירות.</p>
+<h2>2. מוצרים ומחירים</h2><p>המחירים, תיאור המוצרים והמלאי יוצגו בעמודי המוצר. יש להציג את המחיר הסופי, לרבות מסים ותשלומים נלווים ככל שנדרש על פי דין, לפני השלמת הרכישה.</p>
+<h2>3. ביצוע הזמנה</h2><p>הזמנה אמיתית מחייבת מערכת מסחר מאובטחת, אישור הזמנה, טיפול בתשלום ותיעוד פרטי ההזמנה. סל הקניות שבגרסה זו הוא הדגמה בלבד ואינו מעביר הזמנות לעסק.</p>
+<h2>4. ביטול עסקה והחזרות</h2><p>ביטול עסקה, החזרת מוצרים והחזרים כספיים יבוצעו בהתאם לדין החל ולמדיניות העסק שתפורסם לפני הרכישה. יש להשלים את המדיניות הספציפית של העסק לפני השקה.</p>
+<h2>5. אחריות</h2><p>אין בתקנון זה כדי לגרוע מזכויות שאינן ניתנות להתניה לפי דין. יש להתאים את התקנון לסוג המוצרים, לאופן המכירה ולדין החל.</p>
+<p><strong>לתשומת לבך:</strong> יש לקבל בדיקה משפטית ולהשלים פרטים חסרים לפני שימוש בתקנון כחלק מחנות פעילה.</p></section></div>
+
+<div class="page" id="page-shipping"><section class="info-page"><h1>מדיניות משלוחים</h1><p class="info-intro">כל מה שחשוב לדעת על קבלת ההזמנה שלך.</p>
+<h2>אפשרויות משלוח</h2><p>הגדרת המשלוח באתר היא כרגע הדגמה: עלות משלוח ₪25, ומשלוח חינם ברכישה בסכום של ₪299 ומעלה לאחר הנחה. יש לוודא שהמחירים והתנאים תואמים למדיניות העסק בפועל.</p>
+<h2>זמני אספקה</h2><p>יש להשלים את זמני האספקה לפי חברת המשלוחים, אזורי החלוקה, ימי עסקים ותקופות עומס. אין לראות בחישוב המשלוח שבסל התחייבות לזמן אספקה.</p>
+<h2>פרטי משלוח</h2><p>בעת השקת חנות פעילה יש לאפשר מסירת פרטי משלוח באופן מאובטח ולהציג את מלוא העלויות לפני אישור ההזמנה.</p>
+<h2>עיכובים ובעיות במסירה</h2><p>אם חבילה מתעכבת או לא הגיעה, יש לפנות לשירות הלקוחות עם פרטי ההזמנה. יש להוסיף כאן את פרטי הקשר האמיתיים של העסק.</p>
+<h2>החלפות והחזרות</h2><p>יש לפרסם בנפרד את אופן בקשת ההחזרה, תנאי המוצר, מועדי הטיפול והחזר כספי, בהתאם לדין החל. נוסח זה הוא תבנית להשלמה ולא מדיניות סופית.</p></section></div>
+
+<div class="page" id="page-returns"><section class="info-page"><h1>החלפות והחזרות</h1><p class="info-intro">אנחנו רוצות שתהיי מרוצה מהבחירה שלך.</p>
+<h2>איך פונים?</h2><p>ניתן לפנות דרך טופס יצירת הקשר כדי לברר אפשרות להחלפה או החזרה. יש להוסיף פרטי קשר, כתובת החזרה והנחיות מסודרות לפני פתיחת החנות.</p>
+<h2>מצב המוצר</h2><p>יש לפרסם את התנאים הנדרשים להחזרת מוצר, תוך שמירה על זכויות הצרכנית לפי הדין. אין להסתמך על תבנית זו כתחליף לבדיקת המדיניות המשפטית המתאימה לעסק.</p>
+<h2>החזרים כספיים</h2><p>יש להגדיר כיצד מטפלים בהחזר כספי, באילו מועדים ובאילו אמצעי תשלום, בהתאם לדין ולתנאי העסקה.</p></section></div>
+
+<div class="page" id="page-contact"><section class="info-page"><h1>יצירת קשר</h1><p class="info-intro">נשמח לשמוע ממך ולעזור בכל שאלה על הקולקציה.</p><div class="info-card"><p><strong>שירות לקוחות TENOR</strong></p><p>יש לעדכן כאן את כתובת האימייל העסקית, מספר הטלפון ושעות הפעילות האמיתיים לפני השקת האתר.</p><p>אימייל: יש להוסיף כתובת עסקית</p><p>טלפון: יש להוסיף מספר טלפון עסקי</p></div>
+<form class="form" style="max-width:650px" onsubmit="sendContact(event)"><input id="contact-name" placeholder="שם מלא" required><input id="contact-email" type="email" placeholder="כתובת אימייל" required><input id="contact-subject" placeholder="נושא הפנייה" required><textarea id="contact-message" rows="5" placeholder="כתבי לנו כאן..." required></textarea><button type="submit">שליחת פנייה</button></form><p id="contact-result" style="text-align:center"></p><p class="info-intro">הטופס הוא הדגמה ואינו שולח הודעה בפועל. כדי לקבל פניות יש לחבר שירות טפסים או שרת.</p></section></div>
+</main>
+
+<footer>
+  <div class="footer-logo">TENOR</div><p>TIMELESS ELEGANCE</p>
+  <div class="footer-links"><button onclick="showPage('new')">חדש באתר</button><button onclick="showPage('sale')">SALE</button><button onclick="showPage('collection')">קולקציות</button><button onclick="showPage('styling')">מגזין סטיילינג</button><button onclick="showPage('club')">מועדון לקוחות</button></div>
+  <div class="footer-columns">
+    <div><h3>קנייה באתר</h3><button onclick="showPage('long')">צעיפים ארוכים</button><button onclick="showPage('square')">צעיפים מרובעים</button><button onclick="showPage('plain')">צעיפים חלקים</button><button onclick="showPage('sale')">מבצעים</button></div>
+    <div><h3>שירות לקוחות</h3><button onclick="showPage('contact')">יצירת קשר</button><button onclick="showPage('shipping')">מדיניות משלוחים</button><button onclick="showPage('returns')">החלפות והחזרות</button></div>
+    <div><h3>מידע משפטי</h3><button onclick="showPage('terms')">תנאי שימוש</button><button onclick="showPage('regulations')">תקנון האתר</button><button onclick="showPage('shipping')">מדיניות משלוחים</button></div>
+    <div><h3>העולם של TENOR</h3><button onclick="showPage('club')">מועדון לקוחות</button><button onclick="showPage('styling')">מגזין סטיילינג</button><button onclick="showPage('collection')">הקולקציות שלנו</button></div>
+  </div>
+  <p>אלגנטיות שנשארת איתך.</p><p>© 2026 TENOR. כל הזכויות שמורות.</p>
+</footer>
+
+<aside class="cart-panel" id="cart-panel" hidden>
+  <div class="cart-top"><h2>תיק הקניות שלי</h2><button onclick="closeCart()" aria-label="סגירה">×</button></div>
+  <div id="cart-items"></div>
+  <div style="margin-top:20px"><label for="coupon">קוד קופון</label><div class="coupon-row"><input id="coupon" placeholder="הקלידי קוד קופון"><button onclick="applyCoupon()">הפעלה</button></div><p id="coupon-message" style="font-size:13px"></p></div>
+  <div class="cart-total"><span>סכום מוצרים</span><span id="subtotal">₪0</span></div>
+  <div class="cart-total"><span>הנחה</span><span id="discount">₪0</span></div>
+  <div class="cart-total"><span>משלוח</span><span id="shipping">חינם</span></div>
+  <p id="shipping-message" style="font-size:12px;color:#897766"></p><hr>
+  <div class="cart-total"><span>סה״כ לתשלום</span><span id="cart-total">₪0</span></div>
+  <button class="cart-checkout" onclick="checkout()">להמשך הזמנה</button>
+  <p style="font-size:12px;color:#897766;line-height:1.8">הסל הוא הדגמה בלבד. לקבלת הזמנות ותשלומים יש לחבר מערכת חנות וסליקה.</p>
+</aside>
+
+<script>
+const products=[
+{id:1,name:"צעיף בגוון שמפניה",price:189,old:249,color:"שמפניה",type:["new","sale","long","collection"],badge:"אהוב במיוחד",image:"https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=700&q=80"},
+{id:2,name:"צעיף קלאסי בגוון חול",price:159,old:199,color:"חול",type:["sale","square","plain"],badge:"SALE",image:"https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80"},
+{id:3,name:"צעיף ארוך בגוון קפה",price:179,old:null,color:"קפה",type:["new","long","plain","collection"],badge:"חדש",image:"https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=700&q=80"},
+{id:4,name:"צעיף מרובע בהדפס עדין",price:169,old:219,color:"שמנת וזהב",type:["sale","square","collection"],badge:"SALE",image:"https://images.unsplash.com/photo-1606760227091-3dd870d97f1d?auto=format&fit=crop&w=700&q=80"},
+{id:5,name:"צעיף חלק בגוון שנהב",price:149,old:null,color:"שנהב",type:["new","plain","long"],badge:"חדש",image:"https://images.unsplash.com/photo-1590736969955-71cc94901144?auto=format&fit=crop&w=700&q=80"},
+{id:6,name:"צעיף בגוון אגוז",price:199,old:259,color:"אגוז",type:["sale","long","collection"],badge:"SALE",image:"https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80"},
+{id:7,name:"צעיף מרובע בגוון ורוד עתיק",price:169,old:null,color:"ורוד עתיק",type:["new","square","collection"],badge:"חדש",image:"https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80"},
+{id:8,name:"צעיף קלאסי בגוון קרם",price:139,old:null,color:"קרם",type:["plain","square","long"],badge:"",image:"https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80"}
+];
+let cart=[];
+let activeCoupon="";
+function card(p){return `<article class="product-card"><div class="product-photo"><img src="${p.image}" alt="${p.name}" loading="lazy">${p.badge?`<span class="badge">${p.badge}</span>`:""}</div><div class="product-info"><h3>${p.name}</h3><p class="color">גוון: ${p.color}</p><div>${p.old?`<span class="old-price">₪${p.old}</span>`:""}<span class="price">₪${p.price}</span></div><button class="add" onclick="addToCart(${p.id})">הוספה לתיק הקניות +</button></div></article>`}
+function renderProducts(){
+ document.getElementById("home-products").innerHTML=products.slice(0,4).map(card).join("");
+ ["new","sale","long","square","plain","collection"].forEach(type=>{
+  const list=products.filter(p=>p.type.includes(type));
+  document.getElementById(type+"-products").innerHTML=list.length?list.map(card).join():'<p class="notice">פריטים חדשים יגיעו בקרוב.</p>';
+ });
+}
+function showPage(name){
+ const page=document.getElementById("page-"+name);if(!page)return;
+ document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+ page.classList.add("active");
+ document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===name));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function addToCart(id){const p=products.find(x=>x.id===id);if(p)cart.push(p);updateCart();openCart()}
+function removeFromCart(i){cart.splice(i,1);updateCart()}
+function applyCoupon(){
+ const code=document.getElementById("coupon").value.trim().toUpperCase(),msg=document.getElementById("coupon-message");
+ if(code==="TENOR10"){activeCoupon=code;msg.textContent="הקופון הופעל: 10% הנחה";msg.style.color="green"}
+ else{activeCoupon="";msg.textContent="קוד לא תקף. קוד ההדגמה: TENOR10";msg.style.color="#9b4b3e"}
+ updateCart();
+}
+function updateCart(){
+ document.getElementById("cart-items").innerHTML=cart.length?cart.map((p,i)=>`<div class="cart-item"><span>${p.name}<br>₪${p.price}</span><button onclick="removeFromCart(${i})">הסרה</button></div>`).join(""):'<p class="notice">תיק הקניות שלך עדיין ריק.</p>';
+ const subtotal=cart.reduce((s,p)=>s+p.price,0),discount=activeCoupon==="TENOR10"?Math.round(subtotal*.1):0,after=subtotal-discount,shipping=subtotal===0||after>=299?0:25;
+ document.getElementById("subtotal").textContent="₪"+subtotal;
+ document.getElementById("discount").textContent="₪"+discount;
+ document.getElementById("shipping").textContent=shipping===0?"חינם":"₪"+shipping;
+ document.getElementById("cart-total").textContent="₪"+(after+shipping);
+ document.getElementById("cart-count").textContent=cart.length;
+ document.getElementById("shipping-message").textContent=subtotal===0?"":after>=299?"זכית במשלוח חינם!":"הוסיפי עוד ₪"+(299-after)+" לקבלת משלוח חינם.";
+}
+function openCart(){document.getElementById("cart-panel").hidden=false;updateCart()}
+function closeCart(){document.getElementById("cart-panel").hidden=true}
+function checkout(){alert("זוהי הדגמה בלבד. כדי לקבל הזמנות ותשלומים יש לחבר מערכת חנות וסליקה.")}
+function joinClub(e){e.preventDefault();document.getElementById("club-message").textContent="תודה "+document.getElementById("club-name").value+"! הטופס הודגם בהצלחה, אך הפרטים לא נשמרו במערכת."}
+function sendContact(e){e.preventDefault();document.getElementById("contact-result").textContent="תודה על פנייתך! זהו טופס הדגמה ואינו שולח הודעה בפועל."}
+const articles={
+tie:{title:"5 דרכים לקשור צעיף",intro:"צעיף הוא אחד הפריטים הרב־שימושיים במלתחה. שינוי קטן באופן הקשירה יכול ליצור מראה חדש לגמרי.",sections:[["1. הקשירה הקלאסית","קפלי צעיף ארוך לשניים, הניחי סביב הצוואר והעבירי את הקצוות דרך הלולאה. זו דרך פשוטה שמתאימה למעיל, לסריג או לחולצה חלקה."],["2. לולאה רכה","כרכי את הצעיף פעם אחת סביב הצוואר והשאירי את הקצוות משוחררים. מתקבל מראה טבעי ולא מתאמץ."],["3. צעיף מרובע סביב הצוואר","קפלי צעיף מרובע באלכסון למשולש, גלגלי בעדינות וקשרי בקשר קטן בצד. זו דרך להוסיף צבע למראה בסיסי."],["4. על הכתפיים","הניחי צעיף רחב מעל הכתפיים כמו שכבה נוספת. מתאים במיוחד לערב או לחלל ממוזג."],["5. כאביזר לתיק","קשרי צעיף קטן לידית התיק. בחרי גוון שמשתלב עם התיק או יוצר ניגוד עדין."]]},
+color:{title:"איך לשלב צבעים כמו מקצוענית",intro:"שילוב צבעים מוצלח לא חייב להיות מורכב. התחילי מבסיס רגוע והוסיפי נקודת עניין אחת.",sections:[["גוונים ניטרליים","שמנת, בז׳, חום, שחור ואפור משתלבים בקלות. צעיף בגוון קרם יכול לרכך מראה כהה, ואילו צעיף חום מעניק עומק לבגדים בהירים."],["כלל של שלושה צבעים","נסי לבנות מראה סביב שני גוונים מרכזיים וגוון שלישי קטן לאביזר. כך מתקבלת תחושה הרמונית ולא עמוסה."],["ניגוד במידה","למראה מעניין, שלבי צבעים בעלי ניגוד עדין — למשל קרם עם קפה או כחול כהה עם אבן. אין צורך שכל הפריטים יהיו באותו צבע."],["הדפסים וטקסטורות","אם הבגד מודפס, צעיף חלק עשוי לאזן אותו. עם בגד בסיסי אפשר לבחור צעיף עם הדפס או טקסטורה בולטת."]]},
+occasion:{title:"צעיף לכל אירוע",intro:"הדרך לבחור צעיף היא לחשוב על האווירה, הבגד והנוחות — לא רק על הצבע.",sections:[["ליום עבודה","צעיף חלק בגוון ניטרלי משתלב היטב עם חולצה מכופתרת, בלייזר או סריג. בחרי קשירה נוחה שלא מפריעה לתנועה."],["למפגש יומיומי","צעיף ארוך ורך מעל חולצה פשוטה וג׳ינס יוצר שכבה מעניינת בלי להרגיש חגיגי מדי."],["לערב חגיגי","צעיף מרובע עם ברק עדין או גוון עמוק יכול להשלים שמלה או חולצה אלגנטית. שמרי על שאר האביזרים מאוזנים."],["לנסיעה","בחרי צעיף נעים שאפשר להניח על הכתפיים. גוון שמתאים לכמה פריטים במזוודה יחסוך מקום ויאפשר יותר שילובים."]]},
+wardrobe:{title:"מלתחה קטנה, הרבה אפשרויות",intro:"מלתחה שימושית בנויה מפריטים שקל לשלב ביניהם. צעיף הוא דרך פשוטה לרענן בגדים שכבר יש לך.",sections:[["התחילי מבסיס","בחרי כמה פריטים שאת לובשת לעיתים קרובות בגוונים שמתאימים זה לזה. אין צורך לקנות מלתחה חדשה כדי ליצור שילובים."],["הוסיפי שני צעיפים שונים","צעיף ניטרלי לשימוש יומיומי וצעיף עם צבע או הדפס מעניקים שתי אפשרויות שונות לאותם בגדים."],["שחקי עם פרופורציות","צעיף ארוך מוסיף קווים ותנועה. צעיף מרובע יוצר מראה מסודר וממוקד יותר. נסי מול המראה ובחרי במה שנוח לך."],["טפלי בפריטים","בדקי את הוראות הטיפול שעל התווית. אחסון נקי ויבש וקיפול עדין יכולים לסייע לשמור על מראה הצעיף לאורך זמן."]]}
+};
+function showArticle(key){
+ const a=articles[key];if(!a)return;
+ document.getElementById("article-content").innerHTML=`<span class="eyebrow">THE TENOR JOURNAL</span><h1>${a.title}</h1><p class="info-intro">${a.intro}</p>${a.sections.map(s=>`<h2>${s[0]}</h2><p>${s[1]}</p>`).join("")}<p style="margin-top:35px">השראה נוספת מחכה לך במגזין TENOR.</p>`;
+ showPage("article");
+}
+renderProducts();updateCart();
+</script>
+</body>
+</html>
+```

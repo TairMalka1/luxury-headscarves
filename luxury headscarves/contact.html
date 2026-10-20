@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>יצירת קשר | YOUR BRAND</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">אנחנו כאן בשבילך ♡</div>
+
+  <header class="header">
+    <a class="logo" href="index.html">YOUR BRAND</a>
+    <nav class="nav">
+      <a href="index.html">ראשי</a>
+      <a href="shop.html">הקולקציה</a>
+      <a href="about.html">אודות</a>
+      <a href="contact.html">יצירת קשר</a>
+      <a href="cart.html">סל (<span data-cart-count>0</span>)</a>
+    </nav>
+  </header>
+
+  <section class="page-banner">
+    <span class="eyebrow">WE'D LOVE TO HEAR FROM YOU</span>
+    <h1>נשמח לשמוע ממך</h1>
+    <p>שאלה, התייעצות או משהו שתרצי לשתף? אנחנו כאן.</p>
+  </section>
+
+  <main class="container section">
+    <div class="contact-form">
+      <label>
+        שם מלא
+        <input class="field" id="contact-name" name="name" required placeholder="איך קוראים לך?">
+      </label>
+
+      <label>
+        כתובת אימייל
+        <input class="field" type="email" id="contact-email" name="email" required placeholder="name@example.com">
+      </label>
+
+      <label>
+        נושא הפנייה
+        <input class="field" id="contact-subject" name="subject" placeholder="במה נוכל לעזור?">
+      </label>
+
+      <label>
+        ההודעה שלך
+        <textarea class="textarea-field" id="contact-body" name="message" required placeholder="כתבי לנו כאן..."></textarea>
+      </label>
+
+      <button class="btn" type="button" id="contact-submit">
+        הכנת הודעה
+      </button>
+
+      <p id="contact-message" class="status-message" aria-live="polite"></p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h3>YOUR BRAND</h3><p>הסגנון שלך, בדרך שלך.</p></div>
+      <div><h3>ניווט</h3><div class="footer-links"><a href="shop.html">החנות</a><a href="about.html">אודות</a></div></div>
+      <div><h3>עזרה</h3><div class="footer-links"><a href="cart.html">סל הקניות</a><a href="contact.html">יצירת קשר</a></div></div>
+    </div>
+    <div class="footer-bottom">© YOUR BRAND · כל הזכויות שמורות</div>
+  </footer>
+
+  <script>
+    document.getElementById("contact-submit").addEventListener("click", () => {
+      const name = document.getElementById("contact-name").value.trim();
+      const email = document.getElementById("contact-email").value.trim();
+      const subject = document.getElementById("contact-subject").value.trim();
+      const body = document.getElementById("contact-body").value.trim();
+      const message = document.getElementById("contact-message");
+
+      if (!name || !email || !body) {
+        message.textContent = "נא למלא שם, אימייל והודעה.";
+        return;
+      }
+
+      const mailSubject = encodeURIComponent(subject || "פנייה מהאתר");
+      const mailBody = encodeURIComponent(
+        `שם: ${name}\nאימייל: ${email}\n\n${body}`
+      );
+
+      message.textContent =
+        "נפתחת אפליקציית האימייל שלך. כדי לקבל פניות גם כשהיא לא זמינה, צריך לחבר שירות טפסים.";
+
+      window.location.href =
+        `mailto:YOUR_EMAIL@example.com?subject=${mailSubject}&body=${mailBody}`;
+    });
+  </script>
+</body>
+</html>

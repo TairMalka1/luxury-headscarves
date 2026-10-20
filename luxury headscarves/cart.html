@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>סל הקניות | YOUR BRAND</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="announcement">עוד קצת ואת שם ♡</div>
+
+  <header class="header">
+    <a class="logo" href="index.html">YOUR BRAND</a>
+    <nav class="nav">
+      <a href="index.html">ראשי</a>
+      <a href="shop.html">הקולקציה</a>
+      <a href="about.html">אודות</a>
+      <a href="contact.html">יצירת קשר</a>
+    </nav>
+  </header>
+
+  <main class="container cart-layout">
+    <div class="breadcrumbs">
+      <a href="index.html">ראשי</a> / סל הקניות
+    </div>
+
+    <h1>סל הקניות שלך</h1>
+    <p class="cart-note">
+      מספר הפריטים בסל: <span id="cart-product-count">0</span>
+    </p>
+
+    <div id="cart-items"></div>
+
+    <div class="cart-total">
+      
+<div class="coupon-box">
+  <label for="coupon-code">יש לך קוד קופון?</label>
+  <div class="coupon-controls">
+    <input
+      id="coupon-code"
+      class="field"
+      type="text"
+      placeholder="הזנת קוד קופון"
+    >
+    <button id="apply-coupon" class="btn btn-outline" type="button">
+      הפעלת קופון
+    </button>
+  </div>
+  <p id="coupon-message" class="status-message" aria-live="polite"></p>
+</div>
+
+      <div class="cart-total-line">
+        <span>סכום ביניים</span>
+        <strong id="cart-total">₪0</strong>
+      </div>
+      <p class="cart-note">
+        הסכום אינו כולל משלוח. המחירים כאן הם להדגמה בלבד.
+      </p>
+      <button class="btn" id="checkout-button" type="button" style="width:100%">
+        להמשך לתשלום
+      </button>
+      <p class="cart-note">
+        התשלום עדיין לא מחובר. אין להזין כאן פרטי אשראי.
+      </p>
+      <a class="text-link" href="shop.html">← להמשיך בקנייה</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h3>YOUR BRAND</h3><p>הסגנון שלך, בדרך שלך.</p></div>
+      <div><h3>ניווט</h3><div class="footer-links"><a href="shop.html">החנות</a><a href="about.html">אודות</a></div></div>
+      <div><h3>עזרה</h3><div class="footer-links"><a href="contact.html">יצירת קשר</a></div></div>
+    </div>
+    <div class="footer-bottom">© YOUR BRAND · כל הזכויות שמורות</div>
+  </footer>
+</body>
+</html>
